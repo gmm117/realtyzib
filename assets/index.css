@@ -1,0 +1,39 @@
+
+html, body, p, h1, h2, h3, h4, h5, h6, menu, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, hr {
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    border-spacing: 0px;
+}
+
+.search_zone {
+    display: flex;
+}
+
+.result > table {
+    width: 100%;
+    border : solid 1px #e1e1e1;
+    border-collapse: collapse;
+}
+
+.result > table > thead {
+    background: #f7f7f7;
+    font-weight: bold;
+}
+
+.result > table > thead th {
+    text-align: center;
+    border-left: solid 1px #e1e1e1;
+    border-top: solid 1px #e1e1e1;
+    padding: 10px 8px 10px 17px;
+    
+}
+
+.result > table > tbody td {
+    text-align: center;
+    border-left: solid 1px #e1e1e1;
+    border-top: solid 1px #e1e1e1;
+    padding: 10px 8px 10px 17px;
+}
