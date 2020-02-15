@@ -178,14 +178,13 @@ function addRow(seq, children) {
 }
 
 function LoadRealty() {
-  var get = 'POST CALL METHOD CALL';
   var xhr = new XMLHttpRequest();
   var parser, xmlDoc, children;
   var seq = 0;
   xhr.open("POST", "/api/call");
   xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
-  xhr.onreadystatechange = function (result) {
+  xhr.onreadystatechange = function () {
     // Call a function when the state changes.
     if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
       parser = new DOMParser();
