@@ -41,6 +41,11 @@ You can [download](https://github.com/gmm117/realtyzib) the latest installable v
 ## Emailware
 
 I'd like you send me an email at <gmm117@naver.com> about anything you'd want to say about this software. I'd really appreciate it!
+
+## heroku 
+- [heroku-github](https://safe-everglades-00377.herokuapp.com/realtyzib)
+- [heroku](www.heroku.com)
+
 ## Credits
 
 This software uses the following open source packages:
@@ -52,6 +57,7 @@ This software uses the following open source packages:
 - [npm](https://www.npmjs.com/)
 - [expressjs](https://expressjs.com/ko/)
 - [request](https://www.npmjs.com/package/request)
+
 
 ## Support
 
