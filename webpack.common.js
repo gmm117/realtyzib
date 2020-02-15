@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
   // enntry file
-  entry: './src/index.js',
+  entry: './src/index.ts',
   // 컴파일 + 번들링된 js 파일이 저장될 경로와 이름 지정
   output: {
     filename : '[name].[chunkhash].js',
@@ -14,6 +14,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+				test: /\.ts$/,
+				use: ['ts-loader']
+			},
       {
         test: /\.js$/,
         use: {
