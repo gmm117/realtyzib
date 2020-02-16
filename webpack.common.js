@@ -14,16 +14,16 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+			// 	test: /\.ts$/,
+			// 	use: ['ts-loader']
+			// },
       {
-				test: /\.ts$/,
-				use: ['ts-loader']
-			},
-      {
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env'],
+              presets: ['@babel/preset-env',  "@babel/preset-typescript"],
               plugins: ['@babel/plugin-proposal-class-properties']
             }
         }

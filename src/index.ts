@@ -2,7 +2,7 @@ import '../assets/reset.css'
 import '../assets/index.scss';
 
 function initialize() {
-    let rt_search = document.querySelector('#rt_search') as HTMLElement;
+    let rt_search = document.querySelector('#rt_search') as HTMLButtonElement;
     if(rt_search) {
         let rt_search_result = document.querySelector('.rt_search_result') as HTMLElement;
         rt_search.addEventListener('click', (e) => {
