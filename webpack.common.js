@@ -9,7 +9,7 @@ module.exports = {
   entry: './src/index.ts',
   // 컴파일 + 번들링된 js 파일이 저장될 경로와 이름 지정
   output: {
-    filename : '[name].[chunkhash].js',
+    filename : '[name].[hash].js',
     path: path.resolve(__dirname + "/dist")
   },
   module: {
@@ -40,6 +40,10 @@ module.exports = {
       {
         test : /\.css$/i,
         use : [MiniCssExtractPlugin.loader, "css-loader"]
+      },
+      {
+          test: /\.scss$/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader', "sass-loader"]
       } 
     ]
   },

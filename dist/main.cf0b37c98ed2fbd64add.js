@@ -92,18 +92,40 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
+__webpack_require__(2);
 function initialize() {
-    var searchbtn = document.getElementById("search_btn");
-    if (searchbtn) {
-        searchbtn.addEventListener("click", searchBtnClick);
+    var rt_search = document.querySelector('#rt_search');
+    if (rt_search) {
+        var rt_search_result_1 = document.querySelector('.rt_search_result');
+        rt_search.addEventListener('click', function (e) {
+            if (rt_search.innerText === "검색") {
+                deleteAllRow();
+                LoadRealty();
+                rt_search_result_1.style.display = "block";
+                rt_search.innerText = "숨기기";
+            }
+            else {
+                deleteAllRow();
+                rt_search_result_1.style.display = "none";
+                rt_search.innerText = "검색";
+            }
+        });
+    }
+    var rt_result = document.querySelector('#rt_result');
+    if (rt_result) {
+        var rt_result_group_1 = document.querySelector('.rt_result_group');
+        rt_result.addEventListener('click', function (e) {
+            if (rt_result_group_1.style.display === "block") {
+                rt_result_group_1.style.display = "none";
+            }
+            else {
+                rt_result_group_1.style.display = "block";
+            }
+        });
     }
 }
-function searchBtnClick(e) {
-    deleteAllRow();
-    LoadRealty();
-}
 function deleteAllRow() {
-    var tbody = document.getElementById('result_body');
+    var tbody = document.querySelector('#rt_search_body');
     var totCnt = (tbody && tbody.childElementCount) || 0;
     if (tbody) {
         for (var i = 0; i < totCnt; i++) {
@@ -113,7 +135,7 @@ function deleteAllRow() {
 }
 function addRow(seq, children) {
     var arrChild = Array.from(children.children);
-    var tbody = document.getElementById('result_body');
+    var tbody = document.querySelector('#rt_search_body');
     var tr = document.createElement("tr");
     var result;
     var td1 = document.createElement("td");
@@ -184,17 +206,22 @@ function LoadRealty() {
     xhr.send(JSON.stringify({
         "serviceKey": "o9cN%2F0w8po32sX1zOEKmo%2BsF%2BQijO6CcaLZmCAcVj45SuyHOPoCCrYbIbjE33hcAN5%2B649xyJV7%2B7ZH8T8PFTA%3D%3D",
         "pageNo": "1",
-        "numOfRows": "1000",
+        "numOfRows": "10",
         "LAWD_CD": "11710",
         "DEAL_YMD": "201512",
     }));
 }
 initialize();
-LoadRealty();
 
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin

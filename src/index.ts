@@ -1,19 +1,40 @@
-import '../assets/index.css';
+import '../assets/reset.css'
+import '../assets/index.scss';
 
 function initialize() {
-    let searchbtn = document.getElementById("search_btn");
-    if(searchbtn) {
-        searchbtn.addEventListener("click", searchBtnClick);
+    let rt_search = document.querySelector('#rt_search') as HTMLElement;
+    if(rt_search) {
+        let rt_search_result = document.querySelector('.rt_search_result') as HTMLElement;
+        rt_search.addEventListener('click', (e) => {
+            if(rt_search.innerText === "검색") {
+                deleteAllRow();
+                LoadRealty();
+                rt_search_result.style.display = "block";
+                rt_search.innerText = "숨기기";
+            } else {
+                deleteAllRow();
+                rt_search_result.style.display = "none";
+                rt_search.innerText = "검색";
+            }
+            
+        });
+    }
+
+    const rt_result = document.querySelector('#rt_result');
+    if(rt_result) {
+        let rt_result_group = document.querySelector('.rt_result_group') as HTMLElement;
+        rt_result.addEventListener('click', (e) => {
+            if(rt_result_group.style.display === "block") {
+                rt_result_group.style.display = "none";
+            } else {
+                rt_result_group.style.display = "block";
+            }
+        });
     }
 }
 
-function searchBtnClick (e: any) {
-    deleteAllRow();
-    LoadRealty();
-}
-
 function deleteAllRow() {
-    let tbody = document.getElementById('result_body') as HTMLTableElement;
+    let tbody = document.querySelector('#rt_search_body') as HTMLTableElement;
     let totCnt = (tbody && tbody.childElementCount) || 0;
     if(tbody) {
         for(let i=0; i<totCnt; i++) {
@@ -24,7 +45,7 @@ function deleteAllRow() {
 
 function addRow(seq: number, children : HTMLTableElement) {
     let arrChild = Array.from(children.children);
-    let tbody = document.getElementById('result_body');
+    let tbody = document.querySelector('#rt_search_body');
     let tr = document.createElement("tr");
     let result;
 
@@ -106,11 +127,10 @@ function LoadRealty() {
     xhr.send(JSON.stringify({ 
         "serviceKey": "o9cN%2F0w8po32sX1zOEKmo%2BsF%2BQijO6CcaLZmCAcVj45SuyHOPoCCrYbIbjE33hcAN5%2B649xyJV7%2B7ZH8T8PFTA%3D%3D",
         "pageNo": "1",
-        "numOfRows": "1000",
+        "numOfRows": "10",
         "LAWD_CD": "11710",
         "DEAL_YMD": "201512",
         }));
 }
 
 initialize();
-LoadRealty();
