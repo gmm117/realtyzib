@@ -9,8 +9,6 @@ function initialize() {
             if(rt_search.innerText === "검색") {
                 deleteAllRow();
                 LoadRealty();
-                rt_search_result.style.display = "block";
-                rt_search.innerText = "숨기기";
             } else {
                 deleteAllRow();
                 rt_search_result.style.display = "none";
@@ -120,6 +118,11 @@ function LoadRealty() {
                 for(var i=0; i < children.childElementCount; i++) {
                     addRow(++seq, children.childNodes[i] as HTMLTableElement);
                 }
+
+                let rt_search = document.querySelector('#rt_search') as HTMLElement;
+                let rt_search_result = document.querySelector('.rt_search_result') as HTMLElement;
+                rt_search_result.style.display = "block";
+                rt_search.innerText = "숨기기";
             }
             
         }
